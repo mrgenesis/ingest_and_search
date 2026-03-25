@@ -1,5 +1,10 @@
 from langchain_core.prompts import PromptTemplate
 
+question_user = input("Pergunte alguma coisa: ")
+while not question_user.strip():
+    print("A pergunta não pode ser vazia. Por favor.")
+    question_user = input("Pergunte alguma coisa: ")
+
 
 t="""
 CONTEXTO:
@@ -35,5 +40,5 @@ template = PromptTemplate(
 
 text = template.format(
     context=f"{'='*70}\nO chunk recuperado na busca por similaridade na base vetorial vai aqui\n{'='*70}", 
-    question_user=f"{'='*70}\nA pergunta do usuário vai aqui\n{'='*70}")
+    question_user=question_user)
 print(text)
